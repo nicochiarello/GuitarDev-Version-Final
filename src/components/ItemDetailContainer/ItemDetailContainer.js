@@ -17,14 +17,14 @@ const ItemDetailContainer = () => {
             
         });
         listaProductos.then((res)=>{
-            id ? setProducto(res.find((i)=> i.id == id))
+            id ? setProducto(res.find((i)=> i.id === id))
             : <h2>No se encontro el item</h2>
         })
     },[id])
-    console.log(Producto)
+  
     return(
         Cargando 
-        ? <div className="itemcontainer">
+        ? <div >
              <ItemDetail producto={Producto}/>
              
         </div>

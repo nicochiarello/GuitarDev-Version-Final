@@ -1,16 +1,12 @@
 import React from "react";
-import Items from "../Item/Items";
+import Item from "./Item/Item";
 
   
 const ItemList = ({productos}) => {
     return(
-        <>
-            {productos.map((producto, key)=> 
-                <Items key={key} title={producto.nombre} price={producto.precio} link={producto.link} foto={producto.foto} >
-
-                </Items>
-            )}
-        </>
+        <div className="px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
+            {productos.map((i,key)=> <Item key={key} nombre={i.nombre} foto={i.foto} link={i.link} precio={i.precio} />)}
+        </div>
     )
 }
 

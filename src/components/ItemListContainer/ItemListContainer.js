@@ -1,42 +1,43 @@
-import React, {useState, useEffect} from "react"
-import ItemList from "./ItemList/ItemList"
-import Data from "../../data/Data"
-import { useParams } from 'react-router-dom'
+import React, {useEffect, useState} from "react";
+import Data from "../../data/Data";
+import {useParams} from 'react-router-dom'
+import ItemList from './ItemList/ItemList';
 
+const ItemListContainer = () => {
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
 
-const ItemListContainer = () =>{
-    const [productos, setProductos] = useState([])
-    const [cargando, setCargando] = useState(true)
-    
-    const { categoryId } = useParams()
-    console.log(categoryId)
+    const {categoryId} = useParams()
 
     useEffect (() => {
-        setCargando(true)
-        const listaProductos = new Promise((res)=>{
+        setLoading(true)
+
+        const productList = new Promise((res)=>{
             setTimeout(()=>{
                 res(Data)
             }, 2000);
         });
-        listaProductos.then((res) => {
-            categoryId ? setProductos(res.filter((i) => i.category === categoryId)) 
-            : setProductos(res)
+
+        productList.then((res) => {
+            categoryId ? setProducts(res.filter((i) => i.category === categoryId)) 
+            : setProducts(res)
            
-            setCargando(false)
+            setLoading(false)
         });
 
     },[categoryId]);
 
-
-    
-    
-    
     return(
-        <div className="grid">
+        <div >
             
-            {cargando ? <h2>cargando productos...</h2> : <ItemList productos={productos}/>}
+            {loading ? <h2>cargando productos...</h2> : <ItemList productos={products}/>}
         </div>
     )
+
+
+
 }
+
+
 
 export default ItemListContainer;
