@@ -12,7 +12,7 @@ const CartFunction = ({children}) => {
         if(!itemExiste){
             setCart([...cart, {id: producto.id, precio: producto.precio , cantidad: cantidad, nombre: producto.nombre, foto: producto.foto}])
             setTotal(total +( producto.precio*cantidad))
-            setUnidades(unidades + 1)
+            setUnidades(unidades + cantidad)
         } else {
             const cartAux = cart.map((item)=>{
                 if(item.id===producto.id){
@@ -32,7 +32,7 @@ const CartFunction = ({children}) => {
        
             setCart(newItems)
             setTotal(total - (producto.precio*cantidad))
-            setUnidades(unidades - 1)
+            setUnidades(unidades - cantidad)
         
     }
 

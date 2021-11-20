@@ -34,11 +34,17 @@ const ItemCount = (props) => {
         }
     }
  
+    const carrito = (unidades) => {
+        return new Promise((res)=>{
+            res(props.agregar(unidades))
+        })
+        .then(()=>setUnidades(0))
+    }
     console.log(stock)
     return(
         <div>
 
-
+           
 
          
                 {
@@ -51,10 +57,11 @@ const ItemCount = (props) => {
                                 <button onClick={sumar} className="bg-gray-900 w-6 text-white rounded-full py-1" >+</button>
 
                             </div>
-                            <div onClick={()=>props.agregar({unidades})} className="bg-yellow-800 opacity-80 hover:opacity-100 text-white font-bold py-2 px-10 rounded  my-5 flex justify-center">
+                            <div onClick={()=>carrito({unidades})} className="bg-yellow-800 opacity-80 hover:opacity-100 text-white font-bold py-2 px-10 rounded  my-5 flex justify-center">
                                 <button >Comprar</button>
 
                             </div>
+                            
                           </div>
                         : <div onClick={consultarChange} className="bg-yellow-800 opacity-80 hover:opacity-100 text-white font-bold py-2 px-10 rounded  my-5">
                             <button >Consultar</button>

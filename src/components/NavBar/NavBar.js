@@ -35,7 +35,7 @@ const NavBar = () => {
             <Link to="/cart">
             <div className="cart text-4xl cursor-pointer relative  py-2">
                 <i className='bx bx-cart hover:text-gray-500'></i>
-                <p className="text-sm absolute top-0 right-0">{unidadesHandler()}</p>
+                <p className="text-sm absolute top-0 right-0 ">{unidadesHandler()}</p>
             </div>
             </Link>
         </div>

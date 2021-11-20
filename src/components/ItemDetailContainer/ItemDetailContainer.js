@@ -1,39 +1,51 @@
 import React, {useEffect,useState} from "react";
-import Data from "../../data/Data";
+import { collection, getDocs } from "firebase/firestore";
+import db from "../../Firebase/firebaseConfig";
+
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail/ItemDetail";
 
 
 const ItemDetailContainer = () => {
+    const [products, setProducts] = useState([])
+
+
     const {id} = useParams()
-    const [Producto, setProducto] = useState([])
-    const [Cargando, setCargando] = useState(false)
+
     useEffect (() => {
-        const listaProductos = new Promise((res) => {
-            setTimeout(() => {
-                res(Data)
-                setCargando(true)
-            },2000)
-            
-        });
-        listaProductos.then((res)=>{
-            id ? setProducto(res.find((i)=> i.id === id))
-            : <h2>No se encontro el item</h2>
-        })
-    },[id])
-  
-    return(
-        Cargando 
-        ? <div >
-             <ItemDetail producto={Producto}/>
-             
-        </div>
-        : <h1>Cargando</h1>
         
-    )
-}
 
+        const productsFirestore = async() => {
+            const datos = await getDocs(collection(db, 'items'))
+            const aux = []
+            datos.forEach((documento) => {
 
+                aux.push(documento.data())
+            })
+            if(id){
+                const categoryFilter = aux.find((i) => i.id === id)
+                setProducts(categoryFilter)
+            
+            } else{
+
+                
+            }
+        }
+        productsFirestore()
+  
+    }, [id]);
+    
+        return(
+       
+            <div >
+                <ItemDetail producto={products}/>
+                
+            </div>
+
+      
+            
+        )
+     }
 
 
 export default ItemDetailContainer;

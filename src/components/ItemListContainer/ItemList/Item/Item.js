@@ -7,7 +7,7 @@ const Item = ({nombre,foto,link,precio}) => {
     
     
                 
-            <div className="  border border-gray-600   flex flex-col items-center max-h-128">
+            <div className="   shadow-2xl  flex flex-col items-center max-h-128">
                 <div className="w-full h-2/3  border-b-2 border-black flex justify-center py-1">
                     <img className="object-cover max-h-full max-w-full object-center h-full py-2"
                         src={foto} alt="" />

@@ -1,36 +1,62 @@
 import React, {useEffect, useState} from "react";
-import Data from "../../data/Data";
+
 import {useParams} from 'react-router-dom'
 import ItemList from './ItemList/ItemList';
-
+import { collection, getDocs } from "firebase/firestore";
+import db from "../../Firebase/firebaseConfig";
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
+    const handleCategory = () => {
+        const brand = products.filter((i)=> i.subcategory === "fender")
+        setProducts(brand)
+    }
 
     const {categoryId} = useParams()
 
+
+ 
     useEffect (() => {
-        setLoading(true)
+        
 
-        const productList = new Promise((res)=>{
-            setTimeout(()=>{
-                res(Data)
-            }, 2000);
-        });
+        const productsFirestore = async() => {
+            const datos = await getDocs(collection(db, 'items'))
+            const aux = []
+            datos.forEach((documento) => {
 
-        productList.then((res) => {
-            categoryId ? setProducts(res.filter((i) => i.category === categoryId)) 
-            : setProducts(res)
+                aux.push(documento.data())
+            })
+            if(categoryId){
+                const categoryFilter = aux.filter((i) => i.category === categoryId)
+                setProducts(categoryFilter)
+            
+            } else{
+
+                setProducts(aux)
+            }
+        }
+        productsFirestore()
+
+
+
+      
+        // productList.then((res) => {
+        //     categoryId ? setProducts(res.filter((i) => i.category === categoryId)) 
+        //     : setProducts(res)
            
-            setLoading(false)
-        });
+        //     setLoading(false)
+        // })
+
+
 
     },[categoryId]);
+
+
 
     return(
         <div >
             
-            {loading ? <h2>cargando productos...</h2> : <ItemList productos={products}/>}
+            <ItemList productos={products}/>
+            <button onClick={handleCategory}>Fender</button>
         </div>
     )
 
