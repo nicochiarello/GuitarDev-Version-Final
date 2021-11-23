@@ -14,13 +14,19 @@ const CategoryFilterNav = (props) => {
     const categories = (a,b,c) => {
         return(
             <div className="" onMouseOver={()=>setCategoriesOpen(true)} onMouseLeave={()=>setCategoriesOpen(false)}>
-                <h2 >Categorias</h2>
+                <div className="flex items-center justify-center">
+                    <h3 className="px-1 cursor-pointer">Categorias</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+
+                </div>
                 <div className="absolute py-2">
                 {categoriesOpen ? 
-                <div className="bg-white">
-                    <p onClick={()=>handleCategory("electricGuitar") }>{a}</p>
-                    <p onClick={()=>handleCategory("acousticGuitar")}>{b}</p>
-                    <p onClick={()=>handleCategory("classicGuitar")}>{c}</p>
+                <div className="bg-gray-300 flex flex-col gap-4 pl-2 pr-12 py-2">
+                    <p className="cursor-pointer" onClick={()=>handleCategory("electricGuitar") }>Guitarras electricas</p>
+                    <p className="cursor-pointer" onClick={()=>handleCategory("acousticGuitar")}>Guitarras Acusticas</p>
+                    <p className="cursor-pointer" onClick={()=>handleCategory("classicGuitar")}>Guitarras clasicas</p>
                     
                 </div> 
                 : ""}
@@ -44,12 +50,18 @@ const CategoryFilterNav = (props) => {
 
         return(
             <div className="" onMouseOver={()=>setSortOpen(true)} onMouseLeave={()=>setSortOpen(false)}>
-                <h2 >Ordenar por</h2>
-                <div className="absolute py-2">
+                <div className="flex items-center justify-center" >
+                    <h3 className="px-1 cursor-pointer">Ordenar por</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+
+                <div className="absolute py-3">
                 {sortOpen ? 
-                <div className="bg-white">
-                    <p onClick={()=>minToHigh()} >Precio (menor a mayor)</p>
-                    <p onClick={()=>highToMin()}>Precio (mayor a menor)</p>
+                <div className="bg-gray-300   py-2 pr-5 pl-1 flex flex-col justify-between items-center gap-4" >
+                    <p className="cursor-pointer" onClick={()=>minToHigh()} >Precio (menor a mayor)</p>
+                    <p className="cursor-pointer" onClick={()=>highToMin()}>Precio (mayor a menor)</p>
                     
                   
                 </div> 
@@ -64,9 +76,9 @@ const CategoryFilterNav = (props) => {
 
 
  return(
-     <div className="flex w-full items-center my-1 justify-around border-t border-b border-gray-900 py-3 relative">
+     <div className="flex w-full items-center justify-around   py-3 relative mb-3 bg-gray-300">
          <div>
-             {categories("guitarras electricas","guitarras acusticas", "guitarras clasicas")}
+             {categories("Guitarras electricas","Guitarras acusticas","Guitarras clasicas")}
          </div>
 
          <div>
