@@ -8,7 +8,7 @@ const items = [
     {   
         name: 'Guitarras',
         cName: 'nav-links',
-        link: '/category/ElectricGuitar'
+        link: '/category/guitar'
 
     },
     {   

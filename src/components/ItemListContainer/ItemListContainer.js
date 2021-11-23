@@ -4,12 +4,61 @@ import {useParams} from 'react-router-dom'
 import ItemList from './ItemList/ItemList';
 import { collection, getDocs } from "firebase/firestore";
 import db from "../../Firebase/firebaseConfig";
-const ItemListContainer = () => {
+import CategoryFilterNav from "../CategoryFilterNav/CategoryFilterNav";
+const ItemListContainer = (props) => {
     const [products, setProducts] = useState([])
-    const handleCategory = () => {
-        const brand = products.filter((i)=> i.subcategory === "fender")
+
+
+
+
+    const handleCategory = async (props) => {
+
+        const data = await getDocs(collection(db, 'items'))
+        const aux = []
+        data.forEach((documento) => {
+
+             aux.push(documento.data())
+        })
+        
+        const brand = aux.filter((i)=> i.subCategory === props)
+        console.log(props)
         setProducts(brand)
     }
+
+    const sort = async (props) => {
+        
+
+           
+            const aux = await products.sort((a, b)=>{
+                return a.precio - b.precio
+            })
+
+            if(props === 1){
+
+                setProducts([])
+                
+                setProducts(aux)
+            } else if(props === 2){
+            
+                const invertido = []
+
+                for (let i=aux.length - 1; i>=0; --i ){
+                    invertido.push(aux[i])
+                }
+                setProducts(invertido)
+                
+              
+            }
+            
+        
+        
+        
+    } 
+
+
+
+
+
 
     const {categoryId} = useParams()
 
@@ -54,9 +103,10 @@ const ItemListContainer = () => {
 
     return(
         <div >
+            {categoryId === "guitar" ? <CategoryFilterNav  category = {handleCategory} sort={sort}  ></CategoryFilterNav> : ""}
             
             <ItemList productos={products}/>
-            <button onClick={handleCategory}>Fender</button>
+           
         </div>
     )
 

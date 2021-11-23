@@ -1,80 +1,79 @@
 import React,{useState} from "react";
 
 
-function CategoryFilterNav(){
-    return(
-        <Navbar>
-            <NavItem title="Categorias">
-                <Dropdown ></Dropdown>
-
-    
-                
-
-            </NavItem>
-
-            <NavItem title="Busqueda">
-
-            </NavItem>
-
-            <NavItem title="Ordenar por">
-
-            </NavItem>
-        </Navbar>
-    )
-}
+const CategoryFilterNav = (props) => {
+  
+    const [categoriesOpen, setCategoriesOpen] = useState(false)
+    const [sortOpen, setSortOpen] = useState(false)
 
 
-function Navbar(props){
-    return(
-        <div className="w-full  flex cursor-pointer items-center justify-around bg-gray-400 py-3 text-md relative ">
-            {props.children}
-        </div>
-    )
-}
-
-function NavItem(props){
-    
-    const [open, setOpen] = useState(false)
-
-
-
-    return(
-        <div>
-            <p onClick={()=> setOpen(!open)}  className="px-4" >{props.title} </p>
-            
-           {open ?  props.children   : ""}
-            
-        </div>
-    )
-}
-
-function Dropdown(props){
-    
-   
-    
-    function DropdownItems(props){
+    const handleCategory = (category) => {
+        props.category(category)
+        setCategoriesOpen(false)
+    }
+    const categories = (a,b,c) => {
         return(
-            <div className=" ">
-                <p >{props.title}</p>
-                <p >{props.children}</p> 
-                
+            <div className="" onMouseOver={()=>setCategoriesOpen(true)} onMouseLeave={()=>setCategoriesOpen(false)}>
+                <h2 >Categorias</h2>
+                <div className="absolute py-2">
+                {categoriesOpen ? 
+                <div className="bg-white">
+                    <p onClick={()=>handleCategory("electricGuitar") }>{a}</p>
+                    <p onClick={()=>handleCategory("acousticGuitar")}>{b}</p>
+                    <p onClick={()=>handleCategory("classicGuitar")}>{c}</p>
+                    
+                </div> 
+                : ""}
+
+
+                </div>
             </div>
         )
     }
-    return(
 
-        <div className="absolute my-3  py-3 flex flex-col gap-5 bg-gray-300 pr-9 pl-3 cursor-pointer">
-            <DropdownItems title="Guitarras electricas"></DropdownItems>
-            <DropdownItems title="Guitarras acusticas"></DropdownItems>
-            <DropdownItems title="Guitarras electroacusticas"></DropdownItems>
-            <DropdownItems title="Guitarras clasicas"></DropdownItems>
-           
-            
-        </div>
+    const sort = (a,b,c,d) => {
+        
+        const minToHigh = () => {
+            props.sort(1)
+            setSortOpen(false)
+        }
+        const highToMin = () => {
+            props.sort(2)
+            setSortOpen(false)
+        }
+
+        return(
+            <div className="" onMouseOver={()=>setSortOpen(true)} onMouseLeave={()=>setSortOpen(false)}>
+                <h2 >Ordenar por</h2>
+                <div className="absolute py-2">
+                {sortOpen ? 
+                <div className="bg-white">
+                    <p onClick={()=>minToHigh()} >Precio (menor a mayor)</p>
+                    <p onClick={()=>highToMin()}>Precio (mayor a menor)</p>
+                    
+                  
+                </div> 
+                : ""}
 
 
-    )
+                </div>
+            </div>
+        )
+    }
+
+
+
+ return(
+     <div className="flex w-full items-center my-1 justify-around border-t border-b border-gray-900 py-3 relative">
+         <div>
+             {categories("guitarras electricas","guitarras acusticas", "guitarras clasicas")}
+         </div>
+
+         <div>
+            {sort()}
+         </div>
+     </div>
+ )
 }
-
 
 export default CategoryFilterNav

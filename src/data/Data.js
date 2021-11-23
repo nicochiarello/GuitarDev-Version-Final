@@ -57,7 +57,7 @@ const Data = [
     key: "5",
     nombre: "Martin D-28",
     precio: "3100",
-    category: "AcousticGuitar",
+    category: "ElectroAcoustic",
     stock: '8',
     id: "5",
     link: "item/5",

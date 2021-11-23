@@ -9,7 +9,7 @@ const Categories = () => {
     return(
         <>
             <NavBar/>
-            <CategoryFilterNav/>
+       
             <ItemListContainer />
         </>
     )
