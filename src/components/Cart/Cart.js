@@ -32,7 +32,7 @@ const Cart = () => {
             </div>
   
             {cart.map((item)=> 
-                <div className="w-7/12 h-1/6 border-gray-900 border-b-2  flex justify-between items-center px-3 py-3 my-2 text-white">
+                <div className="w-7/12 h-1/6 border-gray-900 border-b-2  flex justify-between items-center px-3 py-3 my-2 text-white ">
                     <div className="flex flex-col justify-center items-center h-full w-1/5">
                         <p className="py-3">Producto:</p>
                         <p>{item.nombre}</p>

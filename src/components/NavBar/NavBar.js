@@ -1,8 +1,10 @@
-import React,{useContext} from "react";
+import React,{useContext, useState} from "react";
 import items from "./NavBarItems";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/CartContext";
 const NavBar = () => {
+
+    const [menuOpen, setMenuOpen] = useState(false)
 
     const {unidades} = useContext(Context)
 
@@ -13,13 +15,35 @@ const NavBar = () => {
             return(unidades)
         }
     }
+
+    const menu = () => {
+        return(
+            
+           <div className="absolute w-screen h-screen bg-gray-800 z-50">
+                <p onClick={()=>setMenuOpen(false)} className="absolute top-3 left-5 text-4xl text-white cursor-pointer" >x</p>
+                <nav>
+                    <ul className="flex flex-col  justify-center items-center gap-y-12 py-15 text-2xl xl:gap- cursor-pointer  text-white">
+                        {items.map((i, key)=><Link key={key} to={i.link}><li key={key} onClick={()=>setMenuOpen(false)} className="hover:text-gray-500">{i.name}</li></Link>)}
+                        
+                    </ul>
+                </nav>
+            </div>
+            
+        )
+    }
+
      
     return(
-
+        <>
+        {menuOpen 
+            ? menu() 
+            : 
         
         <div className="container min-w-full flex justify-between items-center bg-gray-900 text-gray-200 py-6 px-5 xl:px-10 xl:py-5">
+        
+        
             <div className="menu lg:hidden text-4xl">
-                <i className='bx bx-menu'></i>
+                <i onClick={()=>setMenuOpen(true)} className='bx bx-menu cursor-pointer'></i>
             </div>
             <div className="text-3xl font-medium">
                 <h1>GuitarDev</h1>
@@ -39,6 +63,9 @@ const NavBar = () => {
             </div>
             </Link>
         </div>
+        }
+        </>
+     
     )
 }
 
