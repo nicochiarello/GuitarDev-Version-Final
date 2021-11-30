@@ -47,4 +47,4 @@ Gracias a todo el equipo de CoderHouse por la buena onda!
 
 ---
 
-⌨️ con ❤️ por [Nico chiarello](https://github.com/nicochiarello) 😊
+⌨️ con ❤️ por [Nico Chiarello](https://github.com/nicochiarello) 😊
