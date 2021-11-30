@@ -36,21 +36,12 @@ npm start
 
 ## App en funcionamiento ⚙️
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
 
 
 
 ## 🎁
 
-_Gracias a todo el equipo de CoderHouse por la buena onda! _
+Gracias a todo el equipo de CoderHouse por la buena onda! 
 
 
 
