@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Carrousel = () => {
     return(
-            <div className="  w-full h-128 overflow-hidden relative flex ">
+            <div className="  w-full h-186 overflow-hidden relative flex ">
                 <div className="w-full h-full overflow-hidden relative flex ">
                     <div className="hidden  md:block  h-full w-full ">
                         
@@ -14,7 +14,7 @@ const Carrousel = () => {
                         <div className="flex flex-col text-gray-200 px-6 absolute bottom-10 right-52 ">
                             <h2 className=" text-4xl">El Gear de tus sueños</h2> 
                             <h3 className=" text-xl text-gray-400">Slash signature</h3>
-                            <Link to="/category/ElectricGuitar">
+                            <Link to="/category/guitar">
                             <button className="bg-yellow-800 opacity-80 hover:opacity-100 text-white font-bold py-2 px-4 rounded w-full my-5">
                             Explorar
                             </button>

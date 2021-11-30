@@ -1,14 +1,15 @@
 import React, {useEffect,useState} from "react";
-import { collection, getDocs } from "firebase/firestore";
-import db from "../../Firebase/firebaseConfig";
-
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import app from "../../Firebase/firebaseConfig";
+import { Loader } from "../Loader/Loader";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail/ItemDetail";
 
+const db = getFirestore(app)
 
 const ItemDetailContainer = () => {
     const [products, setProducts] = useState([])
-
+    const [loading, setLoading] = useState(true)
 
     const {id} = useParams()
 
@@ -17,14 +18,18 @@ const ItemDetailContainer = () => {
 
         const productsFirestore = async() => {
             const datos = await getDocs(collection(db, 'items'))
+            
             const aux = []
             datos.forEach((documento) => {
-
+                
                 aux.push(documento.data())
             })
+            
             if(id){
                 const categoryFilter = aux.find((i) => i.id === id)
                 setProducts(categoryFilter)
+                setLoading(false)
+                console.log(aux)
             
             } else{
 
@@ -32,13 +37,14 @@ const ItemDetailContainer = () => {
             }
         }
         productsFirestore()
-  
+        
     }, [id]);
     
         return(
        
             <div >
-                <ItemDetail producto={products}/>
+                {loading ? <Loader></Loader> : <ItemDetail producto={products}/> }
+                
                 
             </div>
 

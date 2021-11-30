@@ -5,12 +5,17 @@ import { Context } from "../../../context/CartContext";
   
 const ItemDetail = ({producto}) => {
 
-
+    
     
     const {onAdd} = useContext(Context)
     const agregar = (props) => {
-        onAdd(producto,props.unidades)
-        alert(`agregaste ${props.unidades} al carrito`)
+        if(props.unidades === 0){
+            alert("no puede seleccionar menos de 1")
+        }else{
+
+            onAdd(producto,props.unidades)
+            
+        }
         
     }
 
@@ -21,14 +26,14 @@ const ItemDetail = ({producto}) => {
             <div className="py-4 bg-gray-300 px-16 shadow-md">
                 <h2 className="text-black text-2xl px-3">{producto.nombre}</h2>
             </div>
-            <div className="flex justify-around w-full py-5">
+            <div className="  flex flex-col md:flex-row justify-around w-full my-5 py-5">
                 
 
-                    <div className=" h-128 border-2  w-2/5 flex align-middle justify-center py-2 rounded-md" >
+                    <div className=" w-screen h-144 border-2  md:w-2/5 flex align-middle justify-center py-2 rounded-md" >
                         <img className="max-h-full" src={producto.foto} alt="" />
                     </div>
 
-                    <div className="flex flex-col justify-around px-4 w-2/5 ">
+                    <div className="flex flex-col justify-between px-4 my-12 md:w-2/5 ">
                         
                         <div className="flex flex-col  ">
                             <div>
@@ -43,7 +48,7 @@ const ItemDetail = ({producto}) => {
 
                             </div>
                         </div>
-                        <div className="flex flex-col py-6 justify-center items-center border-t-4">
+                        <div className="flex flex-col mt-6 py-3 justify-center items-center border-t-4">
 
                             <h2 className="text-2xl">${producto.precio}.00</h2>
 

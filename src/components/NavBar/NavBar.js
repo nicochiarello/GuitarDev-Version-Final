@@ -56,12 +56,16 @@ const NavBar = () => {
                     </ul>
                 </nav>
             </div>
-            <Link to="/cart">
-            <div className="cart text-4xl cursor-pointer relative  py-2">
-                <i className='bx bx-cart hover:text-gray-500'></i>
-                <p className="text-sm absolute top-0 right-0 ">{unidadesHandler()}</p>
+            <div className="cart items-center  flex gap-3 text-4xl cursor-pointer relative   py-2">
+                <Link to="/User">
+                    <i className='bx bxs-user hover:text-gray-500'></i>
+
+                </Link>
+                <Link to="/cart">
+                    <i className='bx bx-cart hover:text-gray-500'></i>
+                    <p className="text-sm absolute top-0 right-0 ">{unidadesHandler()}</p>
+                </Link>
             </div>
-            </Link>
         </div>
         }
         </>

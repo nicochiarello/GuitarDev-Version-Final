@@ -5,7 +5,7 @@ import Data from "../../data/Data";
 
 const ThreeItemGrid = () => {
     return(
-        <div className="px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
+        <div className="px-2 lg:px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
             {Data.slice(0,3).map(((i,key) =>
             <div key={key} className=" shadow-2xl  border  rounded  flex flex-col items-center max-h-96">
                 <div className="w-full h-2/3    flex justify-center py-1">

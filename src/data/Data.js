@@ -1,19 +1,6 @@
 const Data = [
 
     {
-    key: "1",
-    nombre: "Gibson Les Paul 70s Deluxe",
-    precio: "2600 ",
-    category: "ElectricGuitar",
-    subcategory: "gibson",
-    id: "1",
-    stock: '8',
-    link: "item/1",
-    foto:"https://static.gibson.com/product-images/USA/USAMRP793/70s%20Cherry%20Sunburst/front-300_600.png",
-    descripcion:"First released in 1969, the Deluxe saw the introduction of the mini humbucker™ to the Les Paul lineup. Mini humbuckers retain the hum-free performance of their full-sized cousins but with a somewhat clearer and brighter tonality. The new Deluxe has features that were inspired by those early models from the 1970s, with a non-weight relief mahogany body and bound maple top, a bound mahogany neck with a Rounded C profile, vintage-style Keystone tuners, Graph Tech® nut, and a traditional Les Paul control layout with 2 Volume and 2 Tone controls wired with Orange Drop® capacitors. Available in classic Goldtop and 70s Cherry Sunburst gloss nitrocellulose lacquer finishes."
-
-    },
-    {
     key: "2",
     nombre: "Fender Eric Clapton Stratocaster",
     precio: "2000",
@@ -27,6 +14,18 @@ const Data = [
 
     },
 
+    {
+    key: "5",
+    nombre: "Martin D-28",
+    precio: "3100",
+    category: "ElectroAcoustic",
+    stock: '8',
+    id: "5",
+    link: "item/5",
+    foto:"https://www.martinguitar.com/dw/image/v2/BGJT_PRD/on/demandware.static/-/Sites-martin-master-catalog/default/dw77e28aa4/images/D-28/D-28_f.jpg?sw=1600&sh=1600&sm=fit",
+    descripcion:"Sometimes innovation is in the details and this is certainly true with Martin’s re-imagined D-28. After nearly a century at the helm, and as the quintessential workhorse of music legends like Hank Williams, The Beatles, Johnny Cash, Neil Young, Bob Dylan, and so many more, Martin's legendary D-28 has been lovingly and artfully enhanced."
+
+    },
     {
     key: "3",
     nombre: "Marshall JCM800",
@@ -53,18 +52,6 @@ const Data = [
 
     },
 
-    {
-    key: "5",
-    nombre: "Martin D-28",
-    precio: "3100",
-    category: "ElectroAcoustic",
-    stock: '8',
-    id: "5",
-    link: "item/5",
-    foto:"https://www.martinguitar.com/dw/image/v2/BGJT_PRD/on/demandware.static/-/Sites-martin-master-catalog/default/dw77e28aa4/images/D-28/D-28_f.jpg?sw=1600&sh=1600&sm=fit",
-    descripcion:"Sometimes innovation is in the details and this is certainly true with Martin’s re-imagined D-28. After nearly a century at the helm, and as the quintessential workhorse of music legends like Hank Williams, The Beatles, Johnny Cash, Neil Young, Bob Dylan, and so many more, Martin's legendary D-28 has been lovingly and artfully enhanced."
-
-    },
 
     {
     key: "6",

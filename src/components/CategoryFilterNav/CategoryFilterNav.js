@@ -15,7 +15,7 @@ const CategoryFilterNav = (props) => {
         return(
             <div className="" onMouseOver={()=>setCategoriesOpen(true)} onMouseLeave={()=>setCategoriesOpen(false)}>
                 <div className="flex items-center justify-center">
-                    <h3 className="px-1 cursor-pointer">Categorias</h3>
+                    <h3 className="px-1 cursor-pointer ">Categorias</h3>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>

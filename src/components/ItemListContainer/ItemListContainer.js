@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
-
+import { Loader } from "../Loader/Loader";
 import {useParams} from 'react-router-dom'
 import ItemList from './ItemList/ItemList';
-import { collection, getDocs } from "firebase/firestore";
-import db from "../../Firebase/firebaseConfig";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import app from "../../Firebase/firebaseConfig";
 import CategoryFilterNav from "../CategoryFilterNav/CategoryFilterNav";
+const db = getFirestore(app)
 const ItemListContainer = (props) => {
     const [products, setProducts] = useState([])
-
+    const [loading, setLoading] = useState(true)
 
 
 
@@ -21,7 +22,7 @@ const ItemListContainer = (props) => {
         })
         
         const brand = aux.filter((i)=> i.subCategory === props)
-        console.log(props)
+        
         setProducts(brand)
     }
 
@@ -74,26 +75,19 @@ const ItemListContainer = (props) => {
 
                 aux.push(documento.data())
             })
+            
             if(categoryId){
                 const categoryFilter = aux.filter((i) => i.category === categoryId)
                 setProducts(categoryFilter)
-            
+                setLoading(false)
             } else{
 
                 setProducts(aux)
+                setLoading(false)
             }
         }
         productsFirestore()
 
-
-
-      
-        // productList.then((res) => {
-        //     categoryId ? setProducts(res.filter((i) => i.category === categoryId)) 
-        //     : setProducts(res)
-           
-        //     setLoading(false)
-        // })
 
 
 
@@ -104,8 +98,9 @@ const ItemListContainer = (props) => {
     return(
         <div >
             {categoryId === "guitar" ? <CategoryFilterNav  category = {handleCategory} sort={sort}  ></CategoryFilterNav> : ""}
+            {loading ? <Loader></Loader> : <ItemList productos={products}/> }
             
-            <ItemList productos={products}/>
+            
            
         </div>
     )
