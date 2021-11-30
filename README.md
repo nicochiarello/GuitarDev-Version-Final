@@ -31,12 +31,12 @@ Una vez instaladas las dependencias corre el siguiente comando para dar inicio a
 ```
 npm start
 ```
-
+Aclaración: por seguridad los archivos .env no han sido subidos por lo tanto no tendras acceso a la base de datos durante la ejecución. Si quieres ver los productos y su funcionamiento puedes acceder a la pagina web en el siguiente bloque de informacón.
 
 
 ## App en funcionamiento ⚙️
 
-
+ * [click Aqui para ingresar a la pagina web](https://guitardev.herokuapp.com/category/guitar)
 
 
 ## 🎁
