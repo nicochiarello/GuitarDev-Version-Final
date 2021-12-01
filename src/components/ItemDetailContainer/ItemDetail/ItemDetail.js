@@ -1,4 +1,4 @@
-import React,{useState, useContext} from "react";
+import React,{useContext} from "react";
 import ItemCount from "../../ItemCount/ItemCount";
 import { Context } from "../../../context/CartContext";
 
@@ -30,7 +30,7 @@ const ItemDetail = ({producto}) => {
                 
 
                     <div className=" w-screen h-144 border-2  md:w-2/5 flex align-middle justify-center py-2 rounded-md" >
-                        <img className="max-h-full" src={producto.foto} alt="" />
+                        <img className="max-h-full object-cover" src={producto.foto} alt="" />
                     </div>
 
                     <div className="flex flex-col justify-between px-4 my-12 md:w-2/5 ">

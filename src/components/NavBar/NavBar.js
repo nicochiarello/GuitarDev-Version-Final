@@ -19,11 +19,14 @@ const NavBar = () => {
     const menu = () => {
         return(
             
-           <div className="absolute w-screen h-screen bg-gray-800 z-50">
+           <div className="absolute w-full  h-screen bg-gray-900 z-50">
+                
                 <p onClick={()=>setMenuOpen(false)} className="absolute top-3 left-5 text-4xl text-white cursor-pointer" >x</p>
                 <nav className="h-full ">
-                    <ul className="flex flex-col h-full justify-between py-28 items-center  text-2xl cursor-pointer  text-white">
-                        {items.map((i, key)=><Link key={key} to={i.link}><li key={key} onClick={()=>setMenuOpen(false)} className="hover:text-gray-700 border-b-2 border-gray-500">{i.name}</li></Link>)}
+                    
+                    <ul className="flex flex-col h-full justify-between py-28  text-2xl cursor-pointer  text-white">
+                    <h1 className="text-center text-2xl font-bold capitalize">GuitarDev</h1>
+                        {items.map((i, key)=><Link key={key} to={i.link}><li key={key} onClick={()=>setMenuOpen(false)} className=" py-5 bg-gray-700 px-2 shadow-2xl hover:bg-gray-800 ">{i.name}</li></Link>)}
                         
                     </ul>
                 </nav>

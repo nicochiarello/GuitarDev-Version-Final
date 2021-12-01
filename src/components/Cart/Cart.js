@@ -92,12 +92,12 @@ const Cart = () => {
                 cart.map((item)=> 
                     <div className="w-9/12  border-gray-900 border-b-2  flex justify-center items-center px-3 py-3 my-2 text-white ">
                         <div className="flex flex-col lg:flex-row justify-center items-center  w-3/5">
-                            <div className="flex justify-center items-center h-full w-full">
-                                <img className="h-full" src={item.foto} alt="" />
+                            <div className="flex justify-center items-center h-20 w-40 ">
+                                <img className="h-full w-full object-cover" src={item.foto} alt="" />
 
                             </div>
                             
-                            <p className="mt-1 lg:ml-5">{item.nombre}</p>
+                            <p className="mt-1 lg:ml-5 text-center">{item.nombre}</p>
 
                             <div className="flex flex-col justify-center items-center h-full w-full">
                                 

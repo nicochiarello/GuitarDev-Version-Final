@@ -5,9 +5,9 @@ import Data from "../../data/Data";
 
 const ThreeItemGrid = () => {
     return(
-        <div className="px-2 lg:px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
+        <div className=" lg:px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {Data.slice(0,3).map(((i,key) =>
-            <div key={key} className="shadow-xl  border  rounded   w-screen md:w-full flex flex-col items-center h-70vh md:max-h-60vh overflow-hidden text-center">
+            <div key={key} className="shadow-xl  border  rounded   w-full md:w-full flex flex-col items-center h-70vh md:max-h-60vh overflow-hidden text-center">
                 <div className="w-full h-2/4 md:h-4/6 flex justify-center py-1">
                     <img className="object-cover max-w-full object-center h-full  "
                         src={i.foto} alt="" />
