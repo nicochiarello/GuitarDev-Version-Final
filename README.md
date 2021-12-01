@@ -36,7 +36,7 @@ Aclaración: por seguridad los archivos .env no han sido subidos por lo tanto no
 
 ## App en funcionamiento ⚙️
 
- * [click Aqui para ingresar a la pagina web](https://guitardev.herokuapp.com/category/guitar)
+ * [click Aqui para ingresar a la pagina web](https://guitardev.herokuapp.com/)
 
 
 ## 🎁
