@@ -1,38 +1,38 @@
 import React from 'react'
 import NavBar from '../components/NavBar/NavBar'
-import {getFirestore, doc, getDoc} from 'firebase/firestore'
-import app from '../Firebase/firebaseConfig'
-import { useState } from 'react/cjs/react.development'
+// import {getFirestore, doc, getDoc} from 'firebase/firestore'
+// import app from '../Firebase/firebaseConfig'
+// import { useState } from 'react/cjs/react.development'
 
-const firestore = getFirestore(app)
+// const firestore = getFirestore(app)
 
 const UserProducts = () => {
-    const [consulta, setConsulta] = useState(true)
-    const [products,setProducts] = useState([])
+    // const [consulta, setConsulta] = useState(true)
+    // const [products,setProducts] = useState([])
 
 
     
 
-    const userInfo = async (e,email) => {
-        e.preventDefault()
-        //referencia
-        const docRef = doc(firestore, `compras/${email}`)
-        //buscar documento
-        const consulta = await getDoc(docRef)
-       if(consulta.exists()){
+    // const userInfo = async (e,email) => {
+    //     e.preventDefault()
+    //     //referencia
+    //     const docRef = doc(firestore, `compras/${email}`)
+    //     //buscar documento
+    //     const consulta = await getDoc(docRef)
+    //    if(consulta.exists()){
 
-           const info = consulta.data()
-           setProducts(info.compra)
-       } else {
-           setProducts([])
-       }
-        setConsulta(false)
+    //        const info = consulta.data()
+    //        setProducts(info.compra)
+    //    } else {
+    //        setProducts([])
+    //    }
+    //     setConsulta(false)
             
 
         
 
         
-    }
+    // }
 
    
 
