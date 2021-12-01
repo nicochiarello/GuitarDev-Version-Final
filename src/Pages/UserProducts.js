@@ -39,7 +39,7 @@ const UserProducts = () => {
     return (
         <>
             <NavBar/>
-            {consulta 
+            {/* {consulta 
                 ?  
                 <div className="py-8 text-center w-screen flex  justify-center">
                     <form onSubmit={(e)=>userInfo(e,e.target.email.value)} className="w-4/6 flex flex-col items-center justify-center  ">
@@ -79,7 +79,7 @@ const UserProducts = () => {
                 <button className="w-1/5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 my-2 px-4 border border-blue-700 rounded" onClick={()=>setConsulta(true)}>Regresar</button>
                 </div>
             }
-            
+             */}
             
         </>
     )
