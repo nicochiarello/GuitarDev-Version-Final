@@ -67,18 +67,18 @@ const ItemList = ({productos}) => {
     return(
         <div>
 
-            <div className="px-1 md:px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 w-full overflow-hidden h-auto ">
+            <div className=" md:px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 w-full overflow-hidden h-auto ">
                 {productsRender.map((i,key)=> <Item key={key} nombre={i.nombre} foto={i.foto} link={i.link} precio={i.precio} />)}
             </div>
             <div className="flex w-full justify-center items-center gap-10 my-10">
 
-                <p className="cursor-pointer" onClick={pageMinus}><i className='bx bx-chevron-left '></i> Anterior </p>
+                <p className="cursor-pointer mr-2" onClick={pageMinus}><i className='bx bx-chevron-left '></i> Anterior </p>
                 <div className="flex justify-center items-center gap-5">
 
                     {pages.map((i,key)=><p key={key} className={activeClass(i)}  onClick={()=>setActualPage(i-1)}>{i}</p>)}
                 </div>
 
-                <p className="cursor-pointer" onClick={pagePlus} >Siguiente<i className='bx bx-chevron-right ' ></i></p>
+                <p className="cursor-pointer ml-2" onClick={pagePlus} >Siguiente<i className='bx bx-chevron-right ' ></i></p>
                 
 
             </div>
