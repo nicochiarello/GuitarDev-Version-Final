@@ -19,7 +19,7 @@ function App() {
 
         <Route path="/" element={<HomePage/>} />
         <Route path="/category/:categoryId" element={ <Categories/> } />
-        <Route path="/userproducts" element={<Users/>} />
+        <Route path="/userproducts" element={<h1>hola</h1>} />
         <Route path="/product/item/:id" element={<SingleProduct/>} />
         <Route path="/cart" element={<CartPage/>} />
         
