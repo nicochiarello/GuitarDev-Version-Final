@@ -48,7 +48,7 @@ const NavBar = () => {
             ? menu() 
             : 
         
-        <div className="container max-w-screen flex justify-between items-center bg-gray-900 text-gray-200 py-6 px-5 xl:px-10 xl:py-5">
+        <div className=" w-full flex justify-between items-center bg-gray-900 text-gray-200 py-6 px-5 xl:px-10 xl:py-5">
         
         
             <div className="menu lg:hidden text-4xl">

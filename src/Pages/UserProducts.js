@@ -6,7 +6,7 @@ import { useState } from 'react/cjs/react.development'
 
 const firestore = getFirestore(app)
 
-const Users = () => {
+const UserProducts = () => {
     const [consulta, setConsulta] = useState(true)
     const [products,setProducts] = useState([])
 
@@ -85,4 +85,4 @@ const Users = () => {
     )
 }
 
-export default Users
+export default UserProducts

@@ -5,7 +5,7 @@ import SingleProduct from './Pages/SingleProduct';
 import CartPage from './Pages/CartPage';
 import { CartFunction } from "./context/CartContext";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Users from './Pages/Users';
+import UserProducts from './Pages/UserProducts';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
         <Route path="/" element={<HomePage/>} />
         <Route path="/category/:categoryId" element={ <Categories/> } />
-        <Route path="/userproducts" element={<h1>hola</h1>} />
+        <Route path="/userproducts" element={<UserProducts/>} />
         <Route path="/product/item/:id" element={<SingleProduct/>} />
         <Route path="/cart" element={<CartPage/>} />
         
