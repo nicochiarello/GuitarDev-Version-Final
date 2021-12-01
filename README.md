@@ -17,14 +17,13 @@ _GuitarDev es un ecommerce de Instrumentos musicales donde puedes encontrar los 
  * [TailWind Css](https://tailwindcss.com/docs) - framework css usado
  * [Craco](https://www.npmjs.com/package/@craco/craco) - Utilizado para correr tailwind
  * [Firebase](https://firebase.google.com/docs?hl=es) - Como base de datos
-
+ * [React-Awesome-Loader](https://www.npmjs.com/package/react-awesome-loaders) - Loader de la aplicación
 ### Instalación 🔧
 
 El primer paso para instalar la app consiste en instalar todas las dependencias necesarias. Lo haremos con el siguiente comando: 
 
 ```
 npm install
-
 ```
 Una vez instaladas las dependencias corre el siguiente comando para dar inicio a la app:
 
@@ -36,7 +35,25 @@ Aclaración: por seguridad los archivos .env no han sido subidos por lo tanto no
 
 ## App en funcionamiento ⚙️
 
- * [click Aqui para ingresar a la pagina web](https://guitardev.herokuapp.com/)
+ * [Click Aqui para ingresar a la pagina web](https://guitardev.herokuapp.com/)
+ 
+ * Aqui se puede ver el proceso de agregar un producto al carrito
+ 
+![HacerCompra](https://user-images.githubusercontent.com/84880292/144248834-c942efa8-4cd0-4c52-b57e-789bfb043172.gif)
+ 
+ * Proceso para finalizar compra
+
+![terminarCompra](https://user-images.githubusercontent.com/84880292/144249214-42549939-1f6d-4cfc-85af-fe8b250f5a75.gif)
+
+ * Proceso para consultar una compra hecha
+ 
+![consultarCompra](https://user-images.githubusercontent.com/84880292/144249340-ea201213-1c58-41dd-9e61-d4fbf802be70.gif)
+
+ * Aqui se puede ver como se guardaron los datos anteriores en la base de datos
+ 
+![db](https://user-images.githubusercontent.com/84880292/144249437-fe7581cb-6641-408b-b9de-43855976e62e.gif)
+
+ 
 
 
 ## 🎁

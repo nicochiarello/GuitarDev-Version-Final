@@ -3,6 +3,7 @@ import { Context } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import {getFirestore, doc, setDoc} from 'firebase/firestore'
 import app from "../../Firebase/firebaseConfig";
+import Form from "../Form/Form";
 
 const firestore = getFirestore(app)
 const Cart = () => {
@@ -29,7 +30,7 @@ const Cart = () => {
     }
 
 
-
+    //funcion para agregar los datos del formulario a Firestore
     const firebaseStoreBuy = async (e,email,nombre,provincia,zip,compra) => {
         e.preventDefault()
         //referencia al doc
@@ -44,7 +45,7 @@ const Cart = () => {
                
             },
             "compra": compra
-        })
+        }) //manejo de vistas
             setForm(false)
             setSuccess(true)
             removeAll()
@@ -57,69 +58,13 @@ const Cart = () => {
 
 
     }
-
+    //Funcion para controlar el boton back
     const regresarHandler = () => {
         setForm(false)
         setShowItems(true)
     }
 
-    const finalizarCompra = () => {
 
-    }
-
-    const handleForm = () => {
-        return(
-            <>
-            <form onSubmit={(e)=>firebaseStoreBuy(e,e.target.email.value,e.target.name.value,e.target.provincia.value,e.target.zip.value,cart)} class="w-full max-w-lg">
-            <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlfor="Nombre">
-                    Nombre
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" type="text" placeholder="Juan" />
-                <p class="text-red-500 text-xs italic">Campo obligatorio</p>
-                </div>
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlfor="Nombre">
-                    Email
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="email" type="text" placeholder="Juan" />
-                <p class="text-red-500 text-xs italic">Campo obligatorio</p>
-                </div>
-
-            </div>
-
-            <div class="flex flex-wrap -mx-3 mb-2">
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-                    Provincia
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="provincia" type="text" placeholder="Mendoza" />
-                </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-                    Departamento
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="departamento" type="text" placeholder="Lujan" />
-                </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-                    Zip
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="zip" type="text" placeholder="5509" />
-                </div>
-            </div>
-            <button onClick={()=>finalizarCompra()} class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 my-2 px-4 border border-blue-700 rounded" type="submit">
-                Finalizar compra
-            </button>
-            <button  onClick={()=>regresarHandler()} class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 my-2 px-4 border border-red-700 rounded" type="submit">
-                Regresar
-            </button>
-            </form  >
-
-            </>
-        )
-    }
 
     const handleViews = () => {
         setShowItems(false)
@@ -137,7 +82,7 @@ const Cart = () => {
             </div>
             {
                 form 
-                ? handleForm()
+                ? <Form firebase={firebaseStoreBuy} regresar={regresarHandler}/>
                 : ""
             }
 
@@ -179,11 +124,11 @@ const Cart = () => {
                 : ""
              
             }
-
+            {/* mensaje de exito */}
             {success 
                 ? 
                 <div className="flex w-screen items-center justify-center  py-5 relative">
-                    <div className="w-1/3 py-8 bg-white rounded-sm text-center flex flex-col items-center text-green-500">
+                    <div className="w-screen px-4 md:w-1/3 py-8 bg-white rounded-sm text-center flex flex-col items-center text-green-500">
                         <svg className="fill-current absolute w-12 top-1 " xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 17.292l-4.5-4.364 1.857-1.858 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.643z"/></svg>
                         <p className="py-4 text-black">Su compra ha sido registrada!</p>
                         <button className="bg-green-500 hover:bg-green-700  text-white font-bold py-2 px-4 rounded w-4/5  my-5" onClick={()=>setSuccess(false)}>Regresar</button>

@@ -57,10 +57,6 @@ const ItemListContainer = (props) => {
     } 
 
 
-
-
-
-
     const {categoryId} = useParams()
 
 

@@ -67,7 +67,7 @@ const ItemList = ({productos}) => {
     return(
         <div>
 
-            <div className="px-1 md:px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 w-full ">
+            <div className="px-1 md:px-14 py-1 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 w-full overflow-hidden h-auto ">
                 {productsRender.map((i,key)=> <Item key={key} nombre={i.nombre} foto={i.foto} link={i.link} precio={i.precio} />)}
             </div>
             <div className="flex w-full justify-center items-center gap-10 my-10">
