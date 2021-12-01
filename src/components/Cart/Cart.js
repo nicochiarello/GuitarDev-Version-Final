@@ -93,7 +93,7 @@ const Cart = () => {
                     <div className="w-9/12  border-gray-900 border-b-2  flex justify-center items-center px-3 py-3 my-2 text-white ">
                         <div className="flex flex-col lg:flex-row justify-center items-center  w-3/5">
                             <div className="flex justify-center items-center h-20 w-40 ">
-                                <img className="h-full w-full object-cover" src={item.foto} alt="" />
+                                <img className="h-full w-full object-scale-down" src={item.foto} alt="" />
 
                             </div>
                             
