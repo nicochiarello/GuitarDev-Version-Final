@@ -69,7 +69,7 @@ const NavBar = () => {
                 </nav>
             </div>
             <div className="cart items-center  flex gap-3 text-4xl cursor-pointer relative   py-2">
-                <Link to="/User">
+                <Link to="/user">
                     <i className='bx bxs-user hover:text-gray-500'></i>
 
                 </Link>
