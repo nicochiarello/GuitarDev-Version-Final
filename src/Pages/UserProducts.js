@@ -1,60 +1,48 @@
-import React from 'react'
+import React,{useState} from 'react'
 import NavBar from '../components/NavBar/NavBar'
-// import {getFirestore, doc, getDoc} from 'firebase/firestore'
-// import app from '../Firebase/firebaseConfig'
-// import { useState } from 'react/cjs/react.development'
+import {getFirestore, doc, getDoc} from 'firebase/firestore'
+import app from '../Firebase/firebaseConfig'
+import GetUserProductForm from '../components/GetUserProductForm/GetUserProductForm'
 
-// const firestore = getFirestore(app)
+
+const firestore = getFirestore(app)
 
 const UserProducts = () => {
-    // const [consulta, setConsulta] = useState(true)
-    // const [products,setProducts] = useState([])
+    const [consulta, setConsulta] = useState(true)
+    const [products,setProducts] = useState([])
 
 
     
 
-    // const userInfo = async (e,email) => {
-    //     e.preventDefault()
-    //     //referencia
-    //     const docRef = doc(firestore, `compras/${email}`)
-    //     //buscar documento
-    //     const consulta = await getDoc(docRef)
-    //    if(consulta.exists()){
+    const userInfo = async (e,email) => {
+        e.preventDefault()
+        //referencia
+        const docRef = doc(firestore, `compras/${email}`)
+        //buscar documento
+        const consulta = await getDoc(docRef)
+       if(consulta.exists()){
 
-    //        const info = consulta.data()
-    //        setProducts(info.compra)
-    //    } else {
-    //        setProducts([])
-    //    }
-    //     setConsulta(false)
+           const info = consulta.data()
+           setProducts(info.compra)
+       } else {
+           setProducts([])
+       }
+        setConsulta(false)
             
 
         
 
         
-    // }
+    }
 
    
 
     return (
         <>
             <NavBar/>
-            {/* {consulta 
+            {consulta 
                 ?  
-                <div className="py-8 text-center w-screen flex  justify-center">
-                    <form onSubmit={(e)=>userInfo(e,e.target.email.value)} className="w-4/6 flex flex-col items-center justify-center  ">
-                        <p className="my-6 text-2xl">Consultar compra</p>
-                        <div className="w-full flex flex-col items-center justify-center bg-gray-400 px-1 py-5 rounded-sm">
-                            
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"  htmlfor="Nombre">
-                                Ingrese su email
-                            </label>
-                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="email" type="email" placeholder="user@user.com" />
-                            
-                            <button  className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 my-2 px-4 border border-blue-700 rounded" type="submit">Consultar</button>
-                        </div>
-                    </form>
-                </div>
+                <GetUserProductForm userInfo={userInfo} />
                 : 
                 <div className="flex flex-col items-center justify-center gap-4">
 
@@ -79,7 +67,7 @@ const UserProducts = () => {
                 <button className="w-1/5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 my-2 px-4 border border-blue-700 rounded" onClick={()=>setConsulta(true)}>Regresar</button>
                 </div>
             }
-             */}
+            
             
         </>
     )
